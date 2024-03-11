@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { NotesModule } from './notes/notes.module';
 import { NoteListsModule } from './note-lists/note-lists.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeormConfig } from './note-lists/config/typeorm.config';
+import { typeormConfig } from './config/typeorm.config';
 
 @Module({
   imports: [TypeOrmModule.forRoot(typeormConfig), NotesModule, NoteListsModule],

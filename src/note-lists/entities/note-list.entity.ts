@@ -7,7 +7,12 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Note } from '../../notes/entities/note.entity';
-import { IsNotEmpty, Length } from 'class-validator';
+import {
+  ArrayMaxSize,
+  ArrayMinSize,
+  IsNotEmpty,
+  Length,
+} from 'class-validator';
 
 @Entity()
 export class NoteList {
@@ -22,6 +27,8 @@ export class NoteList {
   title: string;
 
   @OneToMany(() => Note, (note) => note.noteList, { cascade: true })
+  @ArrayMinSize(1, { message: 'Note list must contain at least one note' })
+  @ArrayMaxSize(10, { message: 'Note list can not contain more than 10 notes' })
   @JoinColumn({ name: 'note_list_id' })
   notes: Note[];
 

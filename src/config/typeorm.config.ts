@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { NoteList } from '../entities/note-list.entity';
-import { Note } from '../../notes/entities/note.entity';
+import { NoteList } from '../note-lists/entities/note-list.entity';
+import { Note } from '../notes/entities/note.entity';
 
 export const typeormConfig: TypeOrmModuleOptions = {
   type: 'postgres',
