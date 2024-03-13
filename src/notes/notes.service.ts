@@ -10,8 +10,7 @@ export class NotesService {
   constructor(
     @InjectRepository(Note)
     private noteRepository: Repository<Note>,
-  ) {
-  }
+  ) {}
 
   async create(createNoteDto: CreateNoteDto): Promise<Note> {
     const note: Note = this.noteRepository.create(createNoteDto);
